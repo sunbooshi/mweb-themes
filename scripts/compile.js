@@ -32,6 +32,11 @@ const args = minimist(process.argv.slice(2), {
   },
 });
 
+const obsidianPostCss = (css, filePath) => {
+  const themeName = filePath.match(/obsidian-(.*)\.scss$/)[1]; // ayu, lark, etc.
+  return css.replaceAll(".markdown-body", `.mweb-${themeName}`);
+}
+
 const platformConfig = {
   mweb3: {
     filter: (filename) => /^mweb-/.test(filename), // 过滤需要编译的 scss 文件
@@ -46,6 +51,13 @@ const platformConfig = {
     getThemeName: (filePath) => filePath.match(/mweb-(.*)\.scss$/)[1], // ayu, lark, etc.
     compiler: compilerForMWeb4,
   },
+  obsidian: {
+    filter: (filename) => /^obsidian-/.test(filename), // 过滤需要编译的 scss 文件
+    namer: (filename) => `${filename}.css`, // scss 编译后写入的文件名
+    themeConfig: require("../src/themes/obsidian-config"),
+    getThemeName: (filePath) => filePath.match(/obsidian-(.*)\.scss$/)[1], // ayu, lark, etc.
+    postcss: obsidianPostCss,
+  },
   typora: {
     filter: (filename) => /^typora-/.test(filename),
     namer: (filename) => `${filename}.css`,
@@ -55,9 +67,11 @@ const platformConfig = {
 };
 
 async function compile({ filePath }) {
-  let css = sass.renderSync({ file: filePath, sourceMap: false }).css;
+  // let css = sass.renderSync({ file: filePath, sourceMap: false }).css;
+  let css = (await sass.compileAsync(filePath, {charset: false})).css;
   if (platformConfig[args.platform] && platformConfig[args.platform].postcss) {
-    css = await platformConfig[args.platform].postcss(css);
+    console.log(platformConfig[args.platform]);
+    css = await platformConfig[args.platform].postcss(css, filePath);
   }
   return css;
 }

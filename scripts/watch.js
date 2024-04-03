@@ -22,6 +22,9 @@ const remarkFrontmatter = require('remark-frontmatter');
 const remarkMath = require('remark-math');
 const remarKatex = require('remark-html-katex');
 const remarkToc = require('remark-toc')
+const marked = require('marked')
+const markedHighlight = require('marked-highlight');
+const hljs = require('highlight.js')
 
 const defaultThemePath = 'src/themes/mweb-default.scss' // base to root
 const outputPath = '../static/mweb.css'
@@ -72,7 +75,7 @@ async function run(args) {
   const io = socketio(server);
   io.on('connection', socket => { socketItem = socket; });
 
-  server.listen(3000, () => { console.log('在浏览器中打开: \x1B[96mhttp://localhost:3000\x1B[39m'); });
+  server.listen(3000, "0.0.0.0", () => { console.log('在浏览器中打开: \x1B[96mhttp://localhost:3000\x1B[39m'); });
 }
 
 function watchFile(file) {
@@ -89,7 +92,7 @@ function watchFile(file) {
 
 async function koaServer() {
   let changing = false;
-  let data = await parseMarkdown()
+  let data = await markedParse()
 
   // 静态文件服务 & 模板服务
   app.use(statics(filePath(staticDir)));
@@ -100,7 +103,7 @@ async function koaServer() {
 
   app.on('change', async () => {
     if (!changing) {
-      data = await parseMarkdown()
+      data = await markedParse()
       socketItem && socketItem.emit('reload');
       changing = true;
       let st = setTimeout(() => {
@@ -137,5 +140,91 @@ async function parseMarkdown() {
       });
   });
 }
+
+function code(code, infostring) {
+  const lang = (infostring || '').match(/^\S*/)?.[0];
+
+  code = code.replace(/\n$/, '') + '\n';
+  const lines = code.split('\n');
+  
+  let liItems = '';
+  let count = 1;
+  while (count < lines.length) {
+      liItems = liItems + `<li>${count}</li>`;
+      count = count + 1;
+  }
+  
+  const codeSection='<section class="code-section"><ul>'
+      + liItems
+      + '</ul>';
+      
+  if (!lang) {
+    return codeSection + '<pre><code>'
+      + code
+      + '</code></pre></section>\n';
+  }
+
+  return codeSection+'<pre><code class="hljs language-'
+    + lang
+    + '">'
+    + code
+    + '</code></pre></section>\n';
+}
+
+function codeRender(codeToken) {
+  const result = code(codeToken.text, codeToken.lang);
+  return result;
+}
+
+function walkTokens(token) {
+  if (token.type == 'link') {
+    if (token.text.indexOf(token.href) === -1 && token.href.indexOf('mailto:') === -1) {
+      token.text = token.text + '[' + token.href + ']';
+      token.tokens = this.Lexer.lexInline(token.text)
+    }
+  }
+}
+
+async function markedParse()  {
+  let data = ""
+  try {
+    data = fs.readFileSync(filePath(exampleMdPath))
+  } catch (e) {
+    return '读取示例 markdown 文件错误失败' + e;
+  }
+  const m = new marked.Marked(
+      markedHighlight.markedHighlight({
+      langPrefix: 'hljs language-',
+      highlight(code, lang, info) {
+      if (lang && hljs.getLanguage(lang)) {
+          try {
+              const result = hljs.highlight(lang, code);
+          return result.value;
+          } catch (err) {}
+      }
+      
+      try {
+          const result = hljs.highlightAuto(code);
+          return result.value;
+      } catch (err) {}
+      
+      return ''; // use external default escaping
+      }
+    })
+  );
+  m.use({walkTokens});
+  m.use({
+    extensions: [{
+        name: 'code',
+      level: 'block',
+      renderer(token) {
+        return codeRender.call(this, token);
+      },
+    }]
+  });
+  
+  return await m.parse(data.toString());
+}
+
 
 run(process.argv.slice(2));

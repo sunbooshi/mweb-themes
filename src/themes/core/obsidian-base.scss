@@ -1,0 +1,214 @@
+/*
+ * 基准样式，相当于 reset.css，使主题在不同平台下有统一的表现。
+ * 各个属性的默认值为 chrome 的默认样式，见 variables/default.scss。
+ */
+
+//  @import "../prism-themes/prism.scss"; // 导入 prism 的样式代码，其配色方案需要通过变量文件引入
+
+ /**
+  * MWeb 包裹 markdown 的容器是 .markdown-body
+  * Typora 中是 #write
+  */
+ .markdown-body { 
+   line-height: $line-height;
+   -webkit-text-size-adjust: 100%;
+  //  max-width: $md-body-max-width;
+   margin: $md-body-mg-v $md-body-mg-h;
+   padding: $md-body-pd-v $md-body-pd-h;
+   font-family: $font-family;
+   font-size: $font-size;
+   color: $font-color;
+   background-color: $body-bg-color;
+ 
+ * {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box
+ }
+ 
+ > *:first-child {
+   margin-top: 0 !important;
+ }
+ 
+ > *:last-child {
+   margin-top: 0 !important;
+ }
+ 
+ /* spacing */
+ 
+ p, details, dl, ol, ul, pre, xmp, plaintext, listing, blockquote, table, figure, hr {
+   margin-top: $block-mg-t;
+   margin-bottom: $block-mg-b;
+ }
+ 
+ /* block */
+ 
+ h1 {
+   font-size: $h1-font-size;
+   font-weight: $h1-font-weight;
+   margin-top: $h1-mg-t;
+   margin-bottom: $h1-mg-b;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ h2 {
+   font-size: $h2-font-size;
+   font-weight: $h2-font-weight;
+   margin-top: $h2-mg-t;
+   margin-bottom: $h2-mg-b;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ h3 {
+   font-size: $h3-font-size;
+   font-weight: $h3-font-weight;
+   margin-top: $h3-mg-t;
+   margin-bottom: $h3-mg-b;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ h4 {
+   font-size: $h4-font-size;
+   font-weight: $h4-font-weight;
+   margin-top: $h4-mg-t;
+   margin-bottom: $h4-mg-b;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ h5 {
+   font-size: $h5-font-size;
+   font-weight: $h5-font-weight;
+   margin-top: $h5-mg-t;
+   margin-bottom: $h5-mg-b;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ h6 {
+   font-size: $h6-font-size;
+   font-weight: $h6-font-weight;
+   margin-top: $h6-mg-t;
+   margin-bottom: $h6-mg-b;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ p {
+   margin-left: 0;
+   margin-right: 0;
+ }
+ 
+ pre, xmp, plaintext, listing {
+   font-family: $code-font-family;
+ }
+ 
+ blockquote {
+   >:first-child {
+     margin-top: 0;
+   }
+   
+   >:last-child {
+     margin-bottom: 0;
+   }
+ }
+ 
+ hr {
+   border-style: $hr-bd-style;
+   border-width: $hr-bd-width;
+ }
+ 
+ img {
+   max-width: 100%;
+   height: auto
+ }
+ 
+ /* list */
+ 
+ li {
+   word-wrap: break-all;
+ }
+ 
+ li+li {
+   margin-top: $li-mg-t;
+ }
+ 
+ ul ul, ol ul, ul ol, ol ol {
+   margin-top: 0;
+   margin-bottom: 0;
+ }
+ 
+ .task-list-item {
+   list-style-type: none;
+ }
+ 
+ /* inline */
+ 
+ a {
+   color: $link-color;
+   text-decoration: $link-decoration;
+ }
+ 
+ a img {
+   border: none
+ }
+ 
+ b, strong {
+   font-weight: $bold-font-weight;
+ }
+ 
+ i, cite, em, var, address, dfn {
+   font-style: $italic-font-style;
+ }
+ 
+ code, kbd, tt, samp {
+   font-family: $code-font-family;
+ }
+ 
+ mark {
+   padding: 0.2em 0;
+   background-color: $mark-bg-color;
+ }
+ 
+ del, s {
+   color: $del-font-color;
+ }
+ 
+ /* table */
+ 
+ table {
+   color: $table-font-color;
+   border-collapse: collapse;
+   background-color: $table-bg-color;
+   border-spacing: $table-border-spacing;
+   font-size: $table-font-size;
+ }
+ 
+ th, td {
+   border-color: $border-color;
+   border-width: $table-border-width;
+   border-style: $table-border-style;
+ }
+ 
+ th {
+   padding: $th-pd-v $th-pd-h;
+   font-size: $th-font-size;
+   font-weight: $th-font-weight;
+ }
+ 
+ td {
+   padding: $td-pd-v $td-pd-h;
+   font-size: $td-font-size;
+   font-weight: $td-font-weight;
+ }
+ 
+ /* svg */
+ 
+ div[id^="mweb-chart-ele"] svg {
+   background-color: white; // 目前暂时没找到替换 svg 各个元素的颜色的方法，统一先用白色
+ }
+ 
+ }

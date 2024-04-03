@@ -47,10 +47,13 @@
     "remark-html-katex": "^3.0.0",
     "remark-math": "^4.0.0",
     "remark-toc": "^7.2.0",
+    "highlight.js": "^11.9.0",
+    "marked": "^12.0.1",
+		"marked-highlight": "^2.1.1",
     "rollup": "^2.48.0",
     "sass": "^1.28.0",
     "socket.io": "^2.3.0",
-    "node-sass": "^6.0.1",
-    "sass-extract": "^2.1.0"
+    "node-sass": "^9.0.0",
+    "sass-extract": "^3.0.0"
   }
 }
