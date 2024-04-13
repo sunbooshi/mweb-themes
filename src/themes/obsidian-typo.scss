@@ -449,6 +449,11 @@ img {
   max-width: 100%;
 }
 
+.footnotes hr {
+  margin-top: 4em;
+  margin-bottom: 0.5em;
+}
+
 /* 代码片断 */
 pre,
 code,
@@ -471,7 +476,7 @@ section {
   pre {
     margin: 0;
     display: block;
-    padding: 1em 0;
+    padding: 1em;
     overflow-x: auto;
 
     code { // reset
@@ -486,7 +491,7 @@ section {
  ul {
    counter-reset: line;
    margin: 0;
-   padding: 1em;
+   padding: 1em 0 1em 1em;
    white-space: normal;
    width: fit-content;
  } 

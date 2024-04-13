@@ -1,13 +1,12 @@
-
-.markdown-body { 
+.markdown-body {
   margin: 0 auto;
   padding: 2em;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 
   color: #595959;
   font-size: 16px;
   line-height: 1.8em;
-  background-image: linear-gradient(90deg,rgba(60,10,30,.05) 3%,transparent 0),linear-gradient(1turn,rgba(60,10,30,.05) 3%,transparent 0);
+  background-image: linear-gradient(90deg, rgba(60, 10, 30, .05) 3%, transparent 0), linear-gradient(1turn, rgba(60, 10, 30, .05) 3%, transparent 0);
   background-size: 20px 20px;
   background-position: 50%;
   word-break: break-all;
@@ -16,206 +15,227 @@
     box-sizing: border-box;
   }
 
-/* 主题自定义 */
+  /* 主题自定义 */
 
-blockquote {
-  margin-left: 0;
-  background-color: #ebf4ff;
-  border-color: #7f9cf5;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #667eea;
-}
+  blockquote {
+    margin-left: 0;
+    background-color: #ebf4ff;
+    border-color: #7f9cf5;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: #667eea;
+  }
 
-strong {
-  color: #5a67d8;
-}
-
-
-a {
-  border-color: #667eea;
-}
-
-blockquote, details, dl, ol, p, pre, table, ul {
-  margin-bottom: 1rem;
-}
-
-ol {
-  list-style: decimal;
-}
-
-ul {
-  list-style: disc;
-}
-
-ol, ul {
-  padding-left: 2em;
-}
-
-h1, h2 {
-  border-color: #5a67d8;
-  border-style: solid;
-  border-top-width: 0px;
-  border-right-width: 0px;
-  font-weight: 500;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.75rem;
-}
-/* 主题自定义 end */
+  strong {
+    color: #5a67d8;
+  }
 
 
+  a {
+    border-color: #667eea;
+  }
 
-/* 布局，一般不需要改动 */
+  blockquote,
+  details,
+  dl,
+  ol,
+  p,
+  pre,
+  table,
+  ul {
+    margin-bottom: 1rem;
+  }
 
-h1, h2 {
-  border-bottom: 1px solid #eaecef !important;
-  border-left-width: 6px;
-}
+  ol {
+    list-style: decimal;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 16px;
-  line-height: 1.25;
-}
+  ul {
+    list-style: disc;
+  }
 
-blockquote {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-left: .25em solid;
-}
+  ol,
+  ul {
+    padding-left: 2em;
+  }
 
-blockquote>:last-child {
-  margin-bottom: 0;
-}
+  h1,
+  h2 {
+    border-color: #5a67d8;
+    border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    font-weight: 500;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.75rem;
+  }
 
-blockquote>:first-child {
-  margin-top: 0;
-}
-
-strong {
-  font-weight: bold;
-}
-
-strong::before {
-  content: '「';
-}
-
-strong::after {
-  content: '」';
-}
-
-
-a {
-  text-decoration: none;
-  border-bottom: 1px solid;
-}
-
-.footnote-ref {
-  border-width: 0px;
-}
+  /* 主题自定义 end */
 
 
 
-picture img {
-  border-radius: 6px;
-  display: block;
-  margin: 10px auto;
-  -o-object-fit: contain;
-  object-fit: contain;
-  box-shadow: 2px 4px 7px #999;
-}
+  /* 布局，一般不需要改动 */
 
-img {
-  max-width: 100%;
-  display: block;
-  margin: 10px auto;
-  object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 2px 4px 7px #999;
-}
+  h1,
+  h2 {
+    border-bottom: 1px solid #eaecef !important;
+    border-left-width: 6px;
+  }
 
-picture {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  blockquote {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-left: .25em solid;
+  }
+
+  blockquote>:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote>:first-child {
+    margin-top: 0;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  strong::before {
+    content: '「';
+  }
+
+  strong::after {
+    content: '」';
+  }
+
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid;
+  }
+
+  .footnote-ref {
+    border-width: 0px;
+  }
 
 
 
-.svg-markmap-box {
-  min-height: 20rem;
-  width: 100%;
-}
+  picture img {
+    border-radius: 6px;
+    display: block;
+    margin: 10px auto;
+    -o-object-fit: contain;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;
+  }
 
-.footnotes {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 10px auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 2px 4px 7px #999;
+  }
 
-.footnotes hr:first-child {
-}
+  picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
 
-/* 代码块特殊处理 */
-section {
-  display: flex;
-  overflow: auto;
-  border: solid 1px #5a67d8;
-  background-color: #ebf4ff;
-}
 
-code, a {
-  color: #5a67d8;
-}
 
-code {
-  background-color: #ebf4ff;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1em;
-  line-height: 1.6em;
-}
+  .svg-markmap-box {
+    min-height: 20rem;
+    width: 100%;
+  }
 
-pre {
-  display: block;
-  overflow-x: auto;
-  padding: 0.9em;
-  line-height: 1.5em;
-  font-size: 1em;
-}
+  .footnotes {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 
-section pre {
-  margin: 0;
- }
+  .footnotes hr {
+    margin-top: 4em;
+    margin-bottom: 0.5em;
+  }
 
- section ul {
-   counter-reset: line;
-   margin: 0;
-   padding: 0.9em;
-   white-space: normal;
-   width: fit-content;
- } 
+  code,
+  a {
+    color: #5a67d8;
+  }
 
- section ul>li {
-   position: relative;
-   margin: 0;
-   padding: 0;
-   display: list-item;
-   text-align: right;
-   line-height: 1.6em;
-   font-size: 1em;
-   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-   padding: 0;
-   list-style-type: none;
-   color: rgba(0, 0, 0, 0.25);
- }
+  /* 代码块特殊处理 */
+  section {
+    display: flex;
+    overflow: auto;
+    border: solid 1px #5a67d8;
+    background-color: #ebf4ff;
 
- section ul>li::marker {
-  content: none;
- }
+    code {
+      background-color: #ebf4ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 1em;
+      line-height: 1.6em;
+      text-wrap: nowrap;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block;
+    }
 
-/* 布局 end */
+    pre {
+      display: block;
+      overflow-x: auto;
+      padding: 0.9em;
+      line-height: 1.5em;
+      font-size: 1em;
+      margin: 0;
+    }
+
+
+    ul {
+      counter-reset: line;
+      margin: 0;
+      padding: 0.9em 0 0.9em 0.9em;
+      white-space: normal;
+      width: fit-content;
+    }
+
+    ul>li {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      display: list-item;
+      text-align: right;
+      line-height: 1.6em;
+      font-size: 1em;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      padding: 0;
+      list-style-type: none;
+      color: rgba(0, 0, 0, 0.25);
+    }
+
+    ul>li::marker {
+      content: none;
+    }
+  }
+
+  /* 布局 end */
 }
