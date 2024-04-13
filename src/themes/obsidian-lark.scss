@@ -148,6 +148,7 @@ section {
       line-height: 1.8em;
       padding: 0 !important;
       margin: 0 !important;
+      text-wrap: nowrap;
     }
   }
 
@@ -171,6 +172,7 @@ section {
    padding: 0;
    list-style-type: none;
    color: #ff502c;
+   text-wrap: nowrap;
  }
 
  ul>li::marker {
