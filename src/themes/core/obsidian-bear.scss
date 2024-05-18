@@ -251,7 +251,7 @@
  .footnotes > ol li::before {
    float: left;
  }
-
+ 
  .footnotes hr {
    margin-top: 4em;
    margin-bottom: 0.5em;
@@ -271,7 +271,7 @@
    overflow-x: auto;
    text-wrap: nowrap;
  }
- section {
+ .code-section {
    display: flex;
    overflow: auto;
    border: solid 1px $border-color;

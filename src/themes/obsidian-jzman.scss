@@ -28,6 +28,7 @@
     margin-top: 35px;
     margin-bottom: 10px;
     padding-bottom: 5px;
+    font-weight: 600;
   }
 
   h1 {
@@ -198,18 +199,28 @@
     margin-bottom: 0.5em;
   }
 
-  /* 代码块特殊处理 */
-  section {
+  code {
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+    word-break: break-word;
+    border-radius: 2px;
+    overflow-x: auto;
+    background-color: #fff5f5;
+    color: #ff502c;
+    font-size: 0.87em;
+    padding: 0.065em 0.4em;
+  }
+
+  .code-section {
     display: flex;
     overflow: auto;
     background-color: #fff5f5;
+  }
 
-
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  /* 代码块特殊处理 */
+  section {
+      code {
       font-size: 1em;
       line-height: 1.75em;
-      overflow-x: auto;
       color: #ff502c;
       padding: 0 !important;
       margin: 0 !important;

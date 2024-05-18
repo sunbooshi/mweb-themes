@@ -69,6 +69,7 @@ npm run compile -- --platform mweb4 --distDir dist/mweb4 # 生成 MWeb 4.2+ 的 
 npm run compile-mweb4 # 等同于上一条命令
 npm run compile -- --platform typora --distDir dist/typora # 生成 Typora 的 css 文件
 npm run compile-typora # 等同于上一条命令
+npm run compile -- --platform obsidian --distDir dist/obsidian # obsidian
 ```
 
 参数：
