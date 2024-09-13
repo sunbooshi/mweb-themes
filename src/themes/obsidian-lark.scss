@@ -132,11 +132,8 @@ code {
 
 .code-section {
   display: flex;
-  overflow: auto;
   border: 1px solid $border-color;
   background-color: $code-bg-color;
-}
-section {
   pre {
     margin: 0;
     display: block;
@@ -145,6 +142,7 @@ section {
 
     code { // reset
       border: none;
+      background-color: $code-bg-color;
       font-size: 1em;
       line-height: 1.8em;
       padding: 0 !important;
@@ -154,6 +152,7 @@ section {
   }
 
  ul {
+   flex-shrink: 0;
    counter-reset: line;
    margin: 0;
    padding: 1em 0 1em 1em;
@@ -167,13 +166,13 @@ section {
    padding: 0;
    display: list-item;
    text-align: right;
+   text-wrap: nowrap;
    line-height: 1.8em;
    font-size: 1em;
    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
    padding: 0;
    list-style-type: none;
    color: #ff502c;
-   text-wrap: nowrap;
  }
 
  ul>li::marker {

@@ -2,7 +2,6 @@
 @import "core/obsidian-base.scss";
 
 .markdown-body {
-  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   padding: 2em;
 
@@ -213,18 +212,16 @@
     padding: 0.065em 0.4em;
   }
 
+  /* 代码块特殊处理 */
   .code-section {
     display: flex;
     overflow: auto;
     background-color: #fff5f5;
-  }
-
-  /* 代码块特殊处理 */
-  section {
       code {
       font-size: 1em;
       line-height: 1.75em;
       color: #ff502c;
+    background-color: #fff5f5;
       padding: 0 !important;
       margin: 0 !important;
       text-wrap: nowrap;
@@ -239,6 +236,7 @@
     }
 
     ul {
+      flex-shrink: 0;
       counter-reset: line;
       margin: 0;
       padding: 1em 0 1em 1em;

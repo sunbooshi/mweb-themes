@@ -195,12 +195,8 @@
   /* 代码块特殊处理 */
   .code-section {
     display: flex;
-    overflow: auto;
     border: solid 1px #5a67d8;
     background-color: #ebf4ff;
-  }
-
-  section {
   pre {
     display: block;
     overflow-x: auto;
@@ -217,9 +213,11 @@
     padding: 0 !important;
     margin: 0 !important;
     display: block;
+    background-color: #ebf4ff;
   }
 
   ul {
+    flex-shrink: 0;
     counter-reset: line;
     margin: 0;
     padding: 0.9em 0 0.9em 0.9em;
@@ -233,6 +231,7 @@
     padding: 0;
     display: list-item;
     text-align: right;
+    text-wrap: nowrap;
     line-height: 1.6em;
     font-size: 1em;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -245,7 +244,7 @@
   ul>li::marker {
     content: none;
   }
-  }
+}
 
   /* 布局 end */
 }

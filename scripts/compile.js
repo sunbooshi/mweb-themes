@@ -34,7 +34,7 @@ const args = minimist(process.argv.slice(2), {
 
 const obsidianPostCss = (css, filePath) => {
   const themeName = filePath.match(/obsidian-(.*)\.scss$/)[1]; // ayu, lark, etc.
-  return css.replaceAll(".markdown-body", `.mweb-${themeName}`);
+  return css.replaceAll(".markdown-body", `.note-to-mp`);
 }
 
 const platformConfig = {

@@ -1,7 +1,6 @@
 .markdown-body {
   min-width: 200px;
   max-width: 760px;
-  margin: 0 auto;
   padding: 3rem 1em 1em;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   word-break: break-word;
@@ -280,13 +279,9 @@
 
   .code-section {
     display: flex;
-    overflow: auto;
     background: #f8f8f8;
     border-radius: 6px;
     border: 2px solid #3eaf7c;
-  }
-
-  section {
     pre {
       margin: 0;
       display: block;
@@ -296,6 +291,7 @@
       code {
         // reset
         border: none;
+        background: #f8f8f8;
         font-size: 1em;
         line-height: 1.8em;
         padding: 0 !important;
@@ -305,6 +301,7 @@
     }
 
     ul {
+      flex-shrink: 0;
       counter-reset: line;
       margin: 0;
       padding: 1em 0 1em 1em;

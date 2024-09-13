@@ -5,7 +5,6 @@
   font-size: 16px;
   min-width: 200px;
   max-width: 760px;
-  margin: 0 auto;
   padding: 1rem;
 
   color: #333;
@@ -82,12 +81,6 @@
   textarea {
     font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei,
       Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-  }
-
-  button::-moz-focus-inner,
-  input::-moz-focus-inner {
-    padding: 0;
-    border: 0;
   }
 
   /* 去掉各Table cell 的边距并让其边重合 */
@@ -478,12 +471,8 @@
 
   .code-section {
     display: flex;
-    overflow: auto;
     background: #f8f8f8;
     border: 1px solid #ddd;
-  }
-
-  section {
     pre {
       margin: 0;
       display: block;
@@ -493,6 +482,7 @@
       code {
         // reset
         border: none;
+        background: #f8f8f8;
         font-size: 1em;
         line-height: 1.8em;
         padding: 0 !important;
@@ -502,6 +492,7 @@
     }
 
     ul {
+      flex-shrink: 0;
       counter-reset: line;
       margin: 0;
       padding: 1em 0 1em 1em;
