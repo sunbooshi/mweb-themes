@@ -1,38 +1,42 @@
 name: Release
 
-on: push
+on: 
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Test scenario tags'
+        required: true
+        type: string
+  push:
+    tags:
+      - "*"
 
 jobs:
   build:
-    if: startsWith(github.ref, 'refs/tags/') # 先执行 git tag -a {tag} 再执行 git push origin {tag} 以触发更新
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node.js  # Nodejs版本
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v4
         with:
-          node-version: 12.13.0
+          node-version: "20"
       - name: Install and Build 
         run: |
           npm install
-          npm run compile -- --platform mweb3 --distDir dist/mweb3-themes
-          npm run compile -- --platform mweb4 --distDir dist/mweb4-themes
-          npm run compile -- --platform typora --distDir dist/typora-themes
+          npm run compile -- --platform obsidian --distDir dist/obsidian
       - name: Pack
         run: |
-          cd dist/mweb3-themes
-          zip -r mweb3-themes.zip ./
-          cd ../mweb4-themes
-          zip -r mweb4-themes.zip ./
-          cd ../typora-themes
-          zip -r typora-themes.zip ./
+          mkdir dist/themes
+          cp -r dist/obsidian/dark/* dist/themes/
+          cp -r dist/obsidian/light/* dist/themes/
+          cd dist/themes/
+          rename 's/obsidian-/mweb-/' *
+          zip -r themes.zip ./
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            dist/mweb3-themes/mweb3-themes.zip
-            dist/mweb4-themes/mweb4-themes.zip
-            dist/typora-themes/typora-themes.zip
+            dist/themes/themes.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
