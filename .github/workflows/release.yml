@@ -32,9 +32,8 @@ jobs:
         run: |
           ./build.sh
       - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            dist/assets.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          gh release create "$tag" \
+            --title="$tag" \
+            --draft dist/assets.zip
