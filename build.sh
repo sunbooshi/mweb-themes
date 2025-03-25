@@ -16,6 +16,10 @@ cd dist/themes/
 rename 's/obsidian-/mweb-/' *
 
 cd ..
-zip assets.zip themes.json highlights.json themes/* highlights/*
+
+# 处理wasm
+wget https://github.com/sunbooshi/note-to-mp-wasm/raw/refs/heads/main/lib.wasm
+
+zip assets.zip lib.wasm themes.json highlights.json themes/* highlights/*
 
 cd ..
