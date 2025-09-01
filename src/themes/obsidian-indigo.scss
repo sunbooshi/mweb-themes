@@ -1,10 +1,5 @@
-@import "variables/default.scss";
-@import "core/obsidian-base.scss";
-
 .markdown-body {
   padding: 1em;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-
   color: #595959;
   font-size: 16px;
   line-height: 1.8em;
@@ -130,7 +125,6 @@
   }
 
 
-
   picture img {
     border-radius: 6px;
     display: block;
@@ -158,13 +152,6 @@
     margin-bottom: 6px;
   }
 
-
-
-  .svg-markmap-box {
-    min-height: 20rem;
-    width: 100%;
-  }
-
   .footnotes {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -190,61 +177,12 @@
     background-color: #ebf4ff;
   }
 
-
-
-  /* 代码块特殊处理 */
-  .code-section {
-    display: flex;
-    border: solid 1px #5a67d8;
-    background-color: #ebf4ff;
-  pre {
-    display: block;
-    overflow-x: auto;
-    padding: 0.9em;
-    line-height: 1.5em;
-    font-size: 1em;
-    margin: 0;
-  }
-
-  code {
-    font-size: 1em;
-    line-height: 1.6em;
-    text-wrap: nowrap;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: block;
-    background-color: #ebf4ff;
-  }
-
-  ul {
-    flex-shrink: 0;
-    counter-reset: line;
-    margin: 0;
-    padding: 0.9em 0 0.9em 0.9em;
-    white-space: normal;
-    width: fit-content;
-  }
-
-  ul>li {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    display: list-item;
-    text-align: right;
-    text-wrap: nowrap;
-    line-height: 1.6em;
-    font-size: 1em;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    padding: 0;
-    list-style-type: none;
-    color: rgba(0, 0, 0, 0.25);
-    text-wrap: nowrap;
-  }
-
-  ul>li::marker {
-    content: none;
+  pre>code {
+    background-color: transparent;
   }
 }
 
-  /* 布局 end */
-}
+$border-color: #5a67d8;
+$code-font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+@import "core/obsidian-code.scss";

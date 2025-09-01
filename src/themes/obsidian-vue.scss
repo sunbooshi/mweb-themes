@@ -1,41 +1,11 @@
-:root {
-  --side-bar-bg-color: #fff;
-  --control-text-color: #777;
-}
-
 .markdown-body {
   font-size: 16px;
-  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif !important;
   color: #34495e;
-  -webkit-font-smoothing: antialiased;
   line-height: 1.6rem;
   letter-spacing: 0;
   margin: 0;
   overflow-x: hidden;
   padding: 2em;
-
-  .task-list-item {
-    list-style-type: none;
-    text-indent: -1.5em; // 这个数值刚好令 checkbox 与上一行第一个字对齐
-
-    &:before {
-      content: "";
-      display: static;
-      margin-right: 0px;
-    }
-
-    >input[type=checkbox] {
-      text-indent: -1.7em;
-    }
-  }
-
-  >*:first-child {
-    margin-top: 0 !important;
-  }
-
-  >*:last-child {
-    margin-bottom: 0 !important;
-  }
 
   img {
     max-width: 100%;
@@ -62,15 +32,6 @@
     font-weight: bold;
     line-height: 1.4;
     cursor: text;
-  }
-
-  h1:hover a.anchor,
-  h2:hover a.anchor,
-  h3:hover a.anchor,
-  h4:hover a.anchor,
-  h5:hover a.anchor,
-  h6:hover a.anchor {
-    text-decoration: none;
   }
 
   h1 tt,
@@ -165,39 +126,6 @@
     box-sizing: content-box;
   }
 
-  >h2:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  >h1:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  >h1:first-child+h2 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  >h3:first-child,
-  >h4:first-child,
-  >h5:first-child,
-  >h6:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  a:first-child h1,
-  a:first-child h2,
-  a:first-child h3,
-  a:first-child h4,
-  a:first-child h5,
-  a:first-child h6 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
   h1 p,
   h2 p,
   h3 p,
@@ -276,90 +204,6 @@
     margin-bottom: 0;
   }
 
-  .cm-s-inner .cm-link,
-  .cm-s-inner.cm-link {
-    color: #22a2c9;
-  }
-
-  .cm-s-inner .cm-string {
-    color: #22a2c9;
-  }
-
-  .md-task-list-item>input {
-    margin-left: -1.3em;
-  }
-
-
-  .md-fences {
-    background-color: #f8f8f8;
-  }
-
-  .mathjax-block>.code-tooltip {
-    bottom: 0.375rem;
-  }
-
-  .md-image>.md-meta {
-    border-radius: 3px;
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
-    padding: 2px 0 0 4px;
-    font-size: 0.9em;
-    color: inherit;
-  }
-
-  .md-tag {
-    color: inherit;
-  }
-
-  .md-toc {
-    margin-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .sidebar-tabs {
-    border-bottom: none;
-  }
-
-  #typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-  }
-
-  #typora-quick-open-item {
-    background-color: #fafafa;
-    border-color: #fefefe #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  #md-notification:before {
-    top: 10px;
-  }
-
-  /** focus mode */
-
-  .on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
-  }
-
-
-  .file-node-content:hover .file-node-icon,
-  .file-node-content:hover .file-node-open-state {
-    visibility: visible;
-  }
-
-  .mac-seamless-mode #typora-sidebar {
-    background-color: var(--side-bar-bg-color);
-  }
-
-  .md-lang {
-    color: #b4654d;
-  }
-
-  .html-for-mac .context-menu {
-    --item-hover-bg-color: #e6f0fe;
-  }
-
-
   .footnotes hr {
     margin-top: 4em;
     margin-bottom: 0.5em;
@@ -367,13 +211,11 @@
 
   /* MWeb：代码块高亮 */
   code,
-  tt,
-  pre {
+  tt {
     border-radius: 2px;
     font-family: Roboto Mono, Source Sans Pro, Monaco, courier, monospace !important;
     font-size: 0.92rem;
     color: #e96900;
-    overflow-x: auto;
     background-color: #f8f8f8;
   }
 
@@ -382,65 +224,25 @@
     padding: 2px 4px;
   }
 
-  pre code {
-    background: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  pre {
-    padding: 0.7em 1em;
-  }
-
   .code-section {
-    display: flex;
-    background: #f8f8f8;
     border-radius: 2px;
     pre {
-      margin: 0;
-      display: block;
-      padding: 1em;
-      font-size: 1em;
-      overflow-x: auto;
-
       code {
         // reset
         border: none;
-        background: #f8f8f8;
-        font-size: 1em;
-        line-height: 1.6em;
-        padding: 0 !important;
-        margin: 0 !important;
+        background-color: transparent;
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0;
+        margin: 0;
         text-wrap: nowrap;
+        color: inherit;
       }
-    }
-
-    ul {
-      flex-shrink: 0;
-      counter-reset: line;
-      margin: 0;
-      padding: 1em 0 1em 1em;
-      white-space: normal;
-      width: fit-content;
-    }
-
-    ul>li {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      display: list-item;
-      text-align: right;
-      text-wrap: nowrap;
-      line-height: 1.6em;
-      font-size: 1em;
-      padding: 0;
-      list-style-type: none;
-      font-family: Roboto Mono, Source Sans Pro, Monaco, courier, monospace !important;
-    }
-
-    ul>li::marker {
-      content: none;
     }
   }
 }
+
+$border-color: #e96900;
+$code-font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+@import "core/obsidian-code.scss";

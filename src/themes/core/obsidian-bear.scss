@@ -3,33 +3,15 @@
  * Bear 的配色方案位于 src/themes/bear-palettes 目录下。
  */
 
+// @import "obsidian-code.scss";
 // 这里目前只支持 mweb
 .markdown-body {
-  font-family: $font-family;
   font-size: $font-size;
   color: $font-color;
   background-color: $body-bg-color;
   line-height: $line-height;
-  -webkit-text-size-adjust: 100%;
-  //  max-width: $md-body-max-width;
   margin: $md-body-mg-v $md-body-mg-h;
   padding: $md-body-pd-v $md-body-pd-h;
-
-  * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  >*:first-child {
-    margin-top: 0 !important;
-  }
-
-  >*:last-child {
-    margin-top: 0 !important;
-  }
 
   // spacing
 
@@ -54,7 +36,6 @@
 
 
   // block
-
   h1,
   h2,
   h3,
@@ -65,7 +46,6 @@
     margin-bottom: $block-mg-v;
     margin-left: 0;
     margin-right: 0;
-    font-family: $title-font-family;
     font-weight: $title-font-weight;
     line-height: 1.5em;
     color: $head-color;
@@ -108,8 +88,7 @@
     margin-right: 0;
   }
 
-  pre,
-  pre[class*="language-"] {
+  pre {
     padding: 0;
     border: 0;
   }
@@ -150,26 +129,8 @@
   }
 
   ol {
-    margin-left: 1.3em;
-    padding: 0;
+    padding-left: 1.3em;
     list-style-type: decimal;
-  }
-
-  // task list
-
-  .task-list-item {
-    list-style-type: none;
-    text-indent: -1.5em; // 这个数值刚好令 checkbox 与上一行第一个字对齐
-
-    &:before {
-      content: "";
-      display: static;
-      margin-right: 0px;
-    }
-
-    >input[type=checkbox] {
-      text-indent: -1.7em;
-    }
   }
 
   // inline
@@ -190,12 +151,6 @@
   a {
     color: $link-color;
     text-decoration: $link-decoration;
-
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: underline;
-    }
 
     img {
       border: none
@@ -270,20 +225,10 @@
     vertical-align: middle
   }
 
-  // svg
-
-  div[id^="mweb-chart-ele"] svg {
-    background-color: white; // 目前暂时没找到替换 svg 各个元素的颜色的方法，统一先用白色
-  }
-
   // other
 
   .footnotes>ol li {
     text-indent: 0;
-  }
-
-  .footnotes>ol li::before {
-    float: left;
   }
 
   .footnotes hr {
@@ -291,57 +236,10 @@
     margin-bottom: 0.5em;
   }
 
-  /* 代码块 */
   code {
     display: inline;
     color: $code-font-color;
   }
-
-  .code-section {
-    display: flex;
-    border: solid 1px $border-color;
-    background-color: $code-bg-color;
-    pre {
-      margin: 0;
-      overflow-x: auto;
-    }
-
-    code {
-      display: block;
-      padding: 0.9em;
-      font-size: 0.9em;
-      line-height: 1.6em;
-      text-wrap: nowrap;
-      background-color: $code-bg-color;
-    }
-
-    ul {
-      flex-shrink: 0;
-      counter-reset: line;
-      margin: 0;
-      padding: 0.9em 0 0.9em 0.9em;
-      white-space: normal;
-      width: fit-content;
-    }
-
-    ul>li {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      display: list-item;
-      text-align: right;
-      text-wrap: nowrap;
-      line-height: 1.6em;
-      font-size: 0.9em;
-      font-family: $code-font-family;
-      padding: 0;
-      list-style-type: none;
-      color: $font-color;
-    }
-
-    ul>li::marker {
-      content: none;
-    }
-  }
-
 }
+
+@import "obsidian-code.scss";

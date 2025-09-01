@@ -1,10 +1,5 @@
-@import "variables/default.scss";
-@import "core/obsidian-base.scss";
-
 .markdown-body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   padding: 2em;
-
   word-break: break-word;
   line-height: 1.8;
   font-weight: 400;
@@ -99,11 +94,6 @@
     border-bottom: 1px solid #d1e9ff;
   }
 
-  a:hover,
-  a:active {
-    color: #275b8c;
-  }
-
   table {
     display: inline-block !important;
     font-size: 12px;
@@ -141,11 +131,6 @@
     background-color: #f8f8f8;
   }
 
-  blockquote::after {
-    display: block;
-    content: "";
-  }
-
   blockquote>p {
     margin: 10px 0;
   }
@@ -162,16 +147,6 @@
     list-style: inherit;
   }
 
-  ol li .task-list-item,
-  ul li .task-list-item {
-    list-style: none;
-  }
-
-  .task-list-item ul,
-  .task-list-item ol {
-    margin-top: 0;
-  }
-
   ol ul,
   ol ol,
   ul ul,
@@ -183,19 +158,6 @@
     padding-left: 6px;
   }
 
-  @media (max-width: 720px) {
-    h1 {
-      font-size: 24px;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-  }
   .footnotes hr {
     margin-top: 4em;
     margin-bottom: 0.5em;
@@ -205,62 +167,26 @@
     font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
     word-break: break-word;
     border-radius: 2px;
-    overflow-x: auto;
     background-color: #fff5f5;
     color: #ff502c;
     font-size: 0.87em;
     padding: 0.065em 0.4em;
   }
 
-  /* 代码块特殊处理 */
   .code-section {
-    display: flex;
-    overflow: auto;
-    background-color: #fff5f5;
-      code {
-      font-size: 1em;
-      line-height: 1.75em;
-      color: #ff502c;
-    background-color: #fff5f5;
-      padding: 0 !important;
-      margin: 0 !important;
-      text-wrap: nowrap;
-      display: block;
-    }
-
     pre {
-      display: block;
-      overflow: auto;
-      padding: 1em;
-      margin: 0;
-    }
-
-    ul {
-      flex-shrink: 0;
-      counter-reset: line;
-      margin: 0;
-      padding: 1em 0 1em 1em;
-      white-space: normal;
-      width: fit-content;
-    }
-
-    ul>li {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      display: list-item;
-      text-align: right;
-      line-height: 1.75em;
-      font-size: 1em;
-      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-      padding: 0;
-      list-style-type: none;
-      color: #ff502c;
-      text-wrap: nowrap;
-    }
-
-    ul>li::marker {
-      content: none;
+      code {
+        font-size: inherit;
+        padding: 0;
+        margin: 0;
+        border: unset;
+        background-color: transparent;
+      }
     }
   }
 }
+
+$border-color: #cbcbcb;
+$code-font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+@import "core/obsidian-code.scss";

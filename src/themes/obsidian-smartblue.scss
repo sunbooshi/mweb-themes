@@ -1,8 +1,6 @@
 .markdown-body {
   color: #595959;
   font-size: 15px;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue,
-    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
   background-image: linear-gradient(90deg,
       rgba(60, 10, 30, 0.04) 3%,
       rgba(0, 0, 0, 0) 3%),
@@ -78,12 +76,6 @@
     max-width: 100%;
   }
 
-  /* 已加载图片 */
-  img.loaded {
-    margin: 0 auto;
-    display: block;
-  }
-
   /* 引用 */
   blockquote {
     background: #fff9f9;
@@ -147,34 +139,9 @@
     margin-bottom: 0.5em;
   }
 
-  /* 代码 */
-  pre {
-    overflow: auto;
-  }
-
-  pre,
-  code {
-    overflow: auto;
-    position: relative;
-    line-height: 1.75;
-    font-family: Menlo, Monaco, Consolas, Courier New, monospace;
-  }
-
-  pre>code {
-    /* font-size: 12px; */
-    padding: 15px 12px;
-    margin: 0;
-    word-break: normal;
-    display: block;
-    overflow-x: auto;
-    color: #333;
-    background: #f8f8f8;
-  }
-
   code {
     word-break: break-word;
     border-radius: 2px;
-    overflow-x: auto;
     background-color: #fff5f5;
     color: #ff502c;
     font-size: 0.87em;
@@ -182,52 +149,26 @@
   }
 
   .code-section {
-    display: flex;
-    background: #f8f8f8;
     pre {
-      margin: 0;
-      display: block;
-      padding: 1em;
-      overflow-x: auto;
-
       code {
         // reset
         border: none;
-        background: #f8f8f8;
-        font-size: 1em;
-        line-height: 1.8em;
+        background-color: transparent;
+        font-size: inherit;
         padding: 0 !important;
         margin: 0 !important;
         text-wrap: nowrap;
       }
     }
-
     ul {
-      flex-shrink: 0;
-      counter-reset: line;
-      margin: 0;
-      padding: 1em 0 1em 1em;
-      white-space: normal;
-      width: fit-content;
-    }
-
-    ul>li {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      display: list-item;
-      text-align: right;
-      line-height: 1.8em;
-      font-size: 1em;
-      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-      padding: 0;
-      list-style-type: none;
-      color: #ff502c;
-      text-wrap: nowrap;
-    }
-
-    ul>li::marker {
-      content: none;
+      li {
+        line-height: inherit;
+      }
     }
   }
 }
+
+$border-color: #ff502c;
+$code-font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+@import "core/obsidian-code.scss";
