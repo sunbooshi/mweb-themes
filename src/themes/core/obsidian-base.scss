@@ -20,19 +20,6 @@
    color: $font-color;
    background-color: $body-bg-color;
  
- * {
-   -moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
-   box-sizing: border-box
- }
- 
- > *:first-child {
-   margin-top: 0 !important;
- }
- 
- > *:last-child {
-   margin-top: 0 !important;
- }
  
  /* spacing */
  
